@@ -7,11 +7,13 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
     "clsx": "latest",
+    "d3": "^5.15.0",
     "next": "latest",
     "node-sass": "^4.13.1",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "scripts": {
     "dev": "next",
