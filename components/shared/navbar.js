@@ -13,6 +13,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HelpIcon from '@material-ui/icons/Help';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 import Link from '../../src/Link';
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +45,39 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
+const BootstrapInput = withStyles(theme => ({
+    root: {
+        'label + &': {
+            margin: 0,
+        },
+    },
+    input: {
+        position: 'relative',
+        background: 'transparent',
+        border: 0,
+        color: 'white',
+        fontSize: 16,
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        '&:focus': {
+            borderColor: '#80bdff',
+        },
+    },
+}))(InputBase);
+
+
 export default function PageNavbar() {
     const classes = useStyles();
     const [state, setState] = React.useState({
@@ -47,6 +86,10 @@ export default function PageNavbar() {
         bottom: false,
         right: false,
     });
+    const [age, setAge] = React.useState('');
+    const handleChange = event => {
+        setAge(event.target.value);
+    };
 
     const toggleDrawer = (side, open) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -68,13 +111,30 @@ export default function PageNavbar() {
                     <ListItemIcon><HomeIcon className="icon" /></ListItemIcon>
                     <ListItemText primary={`HOME`} />
                 </ListItem>
-                <ListItem button key={`About`} component={Link} naked href="/about">
-                    <ListItemIcon><InfoIcon className="icon" /></ListItemIcon>
-                    <ListItemText primary={`ABOUT`} />
-                </ListItem>
             </List>
             <Divider />
             <List className="div_list__container">
+                <ListItem button key={`About`}>
+                    <ListItemIcon><InfoIcon className="icon" /></ListItemIcon>
+                    <ListItemText primary={`Basic `} />
+                    <FormControl>
+                        <InputLabel id="demo-customized-select-label">Age</InputLabel>
+                        <Select
+                            labelId="demo-customized-select-label"
+                            id="demo-customized-select"
+                            value={age}
+                            onChange={handleChange}
+                            input={<BootstrapInput />}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10} component={Link} naked href="/basic/bsLine">Basic Line</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                        </Select>
+                    </FormControl>
+                </ListItem>
                 <ListItem button key={`Help`} component={Link} naked href="/help">
                     <ListItemIcon><HelpIcon className="icon" /></ListItemIcon>
                     <ListItemText primary={`HELP`} />
