@@ -86,9 +86,9 @@ export default function PageNavbar() {
         bottom: false,
         right: false,
     });
-    const [age, setAge] = React.useState('');
+    const [componentval, setComponent] = React.useState('');
     const handleChange = event => {
-        setAge(event.target.value);
+        setComponent(event.target.value);
     };
 
     const toggleDrawer = (side, open) => event => {
@@ -118,20 +118,36 @@ export default function PageNavbar() {
                     <ListItemIcon><InfoIcon className="icon" /></ListItemIcon>
                     <ListItemText primary={`Basic `} />
                     <FormControl>
-                        <InputLabel id="demo-customized-select-label">Age</InputLabel>
+                        <InputLabel id="demo-customized-select-label">basics:</InputLabel>
                         <Select
                             labelId="demo-customized-select-label"
                             id="demo-customized-select"
-                            value={age}
+                            value={componentval}
                             onChange={handleChange}
                             input={<BootstrapInput />}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={10} component={Link} naked href="/basic/bsLine">Basic Line</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={"/basic/bsLine"} component={Link} naked href="/basic/bsLine">Basic Line</MenuItem>
+                            <MenuItem value={"/basics/bsConcepts"} component={Link} naked href="/basic/bsConcepts">Basic Concepts</MenuItem>
+                            <MenuItem value={"/basics/bsAxisandScale"} component={Link} naked href="/basic/bsAxisandScale">Basic Axis and Scale</MenuItem>
+                            <MenuItem value={"/basics/bschartAnimated"} component={Link} naked href="/basic/bschartAnimated">Basic Animated Chart</MenuItem>
+                            <MenuItem value={"/basics/bsAxisandScale"} component={Link} naked href="/basic/bsAxisandScale">Basic Axis and Scale</MenuItem>
+                        </Select>
+                    </FormControl>
+                </ListItem>
+                <ListItem button key={`About`}>
+                    <ListItemIcon><InfoIcon className="icon" /></ListItemIcon>
+                    <ListItemText primary={`Basic `} />
+                    <FormControl>
+                        <InputLabel id="demo-customized-select-label">samples:</InputLabel>
+                        <Select
+                            labelId="demo-customized-select-label"
+                            id="demo-customized-select"
+                            value={componentval}
+                            onChange={handleChange}
+                            input={<BootstrapInput />}
+                        >
+                            <MenuItem value={"/samples/bsLine"} component={Link} naked href="/basic/bsLine">Basic Line</MenuItem>
+                            <MenuItem value={"/samples/bsConcepts"} component={Link} naked href="/basic/bsConcepts">Basic Concepts</MenuItem>
                         </Select>
                     </FormControl>
                 </ListItem>

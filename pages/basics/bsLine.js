@@ -3,7 +3,7 @@ import { select, line, curveCardinal } from 'd3'
 import Layout from '../../components/layout'
 
 const bsLine = () => {
-    const [data, setData] = useState([25,  40, 45, 55, 60, 65, 88, 90, 92, 96, 98, 102])
+    const [data, setData] = useState([25, 40, 45, 55, 60, 65, 88, 90, 92, 96, 98, 102])
     const svgRef = useRef()
 
     useEffect(() => {
@@ -13,11 +13,11 @@ const bsLine = () => {
             .y(value => 160 - value)
             .curve(curveCardinal)
         svg
-        .selectAll("path")
-        .data([data]).join("path")
-        .attr("d", value => myLine(value))
-        .attr("fill", "none")
-        .attr("stroke", "gold");
+            .selectAll("path")
+            .data([data]).join("path")
+            .attr("d", value => myLine(value))
+            .attr("fill", "none")
+            .attr("stroke", "gold");
     }, [data])
 
     return (
@@ -26,11 +26,11 @@ const bsLine = () => {
                 <svg ref={svgRef}>
                 </svg>
                 <hr />
-                <button onClick={() => setData(data.map(value => value + 10 ))}>Increase</button>
+                <button onClick={() => setData(data.map(value => value + 10))}>Increase</button>
                 |
                 <button onClick={() => setData(data.filter(value => value <= 60))}>filter</button>
                 |
-                <button onClick={() => setData(data.map(value => value - 8 ))}>Decrease</button>
+                <button onClick={() => setData(data.map(value => value - 8))}>Decrease</button>
 
             </>
         </Layout>
