@@ -7,7 +7,14 @@ import {
     axisRight,
     scaleLinear
 } from "d3"
+import styled from 'styled-components'
 import Layout from '../../components/layout'
+
+const Text = styled.text`
+    fill: black;
+    font-family: sans-serif;
+    font-size: 10px;
+`;
 
 function App() {
     const [data, setData] = useState([25, 30, 45, 60, 20, 65, 75]);
@@ -26,7 +33,6 @@ function App() {
 
         const xAxis = axisBottom(xScale)
             .ticks(data.length)
-            .tickFormat(index => index + 1);
         svg
             .select(".x-axis")
             .style("transform", "translateY(150px)")
@@ -59,8 +65,12 @@ function App() {
     return (
         <Layout>
             <svg ref={svgRef}>
-                <g className="x-axis" />
-                <g className="y-axis" />
+                <g className="x-axis" >
+                    <Text />
+                </g>
+                <g className="y-axis" >
+                    <Text />
+                </g>
             </svg>
             <br />
             <br />

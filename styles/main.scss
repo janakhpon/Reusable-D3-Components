@@ -45,3 +45,45 @@ h1 {
 .updated {
     background-color: pink;
 }
+.x-axis{
+    color: white !important;
+    font-weight: bold !important;
+    font-family: 'Fira Code Bold';
+}
+
+g.x-axis {
+    color: red !important;
+    font-weight: bold !important;
+}
+
+ svg {
+    fill: #fff;
+    fill-opacity: 0.3;
+}
+  
+path {
+    stroke: steelblue;
+    stroke-width: 2px;
+    fill: none;
+}
+  
+.axis {
+    stroke: #fff;
+}
+  
+.axis-labels text {
+    fill: #fff;
+    fill-opacity: 0.9;
+    font-size: 12px;
+    text-anchor: middle;
+}
+  
+.axis-labels line {
+    stroke: #fff;
+}
+  
+.gridline {
+    opacity: 0.2;
+}
+  
+  
